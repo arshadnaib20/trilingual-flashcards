@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trilingual Flashcards</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>Trilingual Flashcards</h1>
+      <p class="sub">বাংলা · English · 中文</p>
+    </header>
+
+    <section class="card-box">
+      <p class="direction" id="direction">English → Bengali</p>
+      <p class="prompt" id="prompt">Loading…</p>
+      <form id="answer-form">
+        <input id="answer-input" type="text" autocomplete="off" placeholder="Type the answer" autofocus>
+        <button type="submit">Check</button>
+      </form>
+      <p class="feedback" id="feedback"></p>
+      <button class="ghost" id="next-btn" type="button">Next card</button>
+    </section>
+
+    <section class="stats" id="stats">Answered 0 · Correct 0 · —</section>
+
+    <details class="add">
+      <summary>Add a word</summary>
+      <form id="add-form" class="add-form">
+        <input id="add-bn" placeholder="বাংলা (Bengali)" required>
+        <input id="add-en" placeholder="English" required>
+        <input id="add-zh" placeholder="中文 (Chinese)" required>
+        <button type="submit">Add</button>
+      </form>
+      <p class="add-msg" id="add-msg"></p>
+    </details>
+
+    <footer>Built with Flask + SQLite</footer>
+  </main>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
