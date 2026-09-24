@@ -1,3 +1,4 @@
+import os
 import sqlite3
 from pathlib import Path
 
@@ -110,6 +111,8 @@ def add_card():
     return jsonify({"id": cur.lastrowid, "bn": bn, "en": en, "zh": zh}), 201
 
 
+init_db()
+
+
 if __name__ == "__main__":
-    init_db()
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)), debug=False)
